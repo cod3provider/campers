@@ -1,20 +1,20 @@
 import axios from "axios";
 
-const PER_PAGE = 4;
+export const PER_PAGE = 4;
 
 axios.defaults.baseURL = 'https://640f0b414ed25579dc43f4ef.mockapi.io/api/campers';
 axios.defaults.params = {
   limit: PER_PAGE,
-  page: 1,
 }
 
-export const getCampers = async () => {
+export const getCampers = async (page = 1) => {
   const {data} = await axios("/");
+  console.log(data)
   return data;
 }
 
 export const getCamperById = async(id) => {
-  const res = await axios(`/${id}`);
-  console.log(res);
-  return res;
+  const {data} = await axios(`/${id}`);
+  console.log(data);
+  return {data};
 }
