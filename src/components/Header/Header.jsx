@@ -1,4 +1,3 @@
-import Container from "../common/Container/Container.jsx";
 import Logo from "../Logo/Logo.jsx";
 import NavList from "./NavList/NavList.jsx";
 
