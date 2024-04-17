@@ -1,5 +1,5 @@
-@import '@/utils/variables/variables.module';
-@import '@/utils/variables/placeholders.module';
+@import '../../../utils/styles/variables.module';
+@import '../../../utils/styles/placeholders.module';
 
 .backdrop {
   @extend %backdrop;
