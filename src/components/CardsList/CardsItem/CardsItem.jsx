@@ -1,8 +1,10 @@
 import IconComponent from "@/components/common/IconComponent/IconComponent.jsx";
+import PortalButton from "@/components/common/PortalButton/PortalButton.jsx";
 import s from "./CardsItem.module.scss";
 
 import Pin from "@/assets/icons/Pin.svg";
 import Star from "@/assets/icons/Star.svg";
+import {normalizeLocation} from "@/utils/helpers/normalizer.js";
 
 const CardsItem = ({ camper }) => {
   const {
@@ -20,16 +22,10 @@ const CardsItem = ({ camper }) => {
     engine,
   } = camper;
 
-  console.log(camper);
+  // console.log(camper);
 
   const { beds, airConditioner: AC, kitchen } = details;
   const obj = { adults, transmission, engine, beds, AC, kitchen };
-  const normalizedLocation = (str) => {
-    const locationArr = str.split(" ");
-    const reversedArr = [locationArr[1], locationArr[0]];
-    const reversedString = reversedArr.join(", ");
-    return reversedString.slice(0, -1);
-  };
 
   return (
     <li className={s.item} key={_id}>
@@ -43,13 +39,13 @@ const CardsItem = ({ camper }) => {
 
           <div className={s.desc}>
             <p className={s.rating}>
-            <img src={Star} alt="icon of star" width="16" height="16" />
+              <img src={Star} alt="icon of star" width="16" height="16" />
               {rating}({reviews.length} Reviews)
             </p>
 
             <p className={s.location}>
               <img src={Pin} alt="icon of pin map" width="16" height="16" />
-              <span>{normalizedLocation(location)}</span>
+              <span>{normalizeLocation(location)}</span>
             </p>
           </div>
         </div>
@@ -60,12 +56,13 @@ const CardsItem = ({ camper }) => {
           {Object.entries(obj).map(([key, value], idx) => (
             <li className={s.filterItem} key={idx}>
               <IconComponent icon={key} text={value} quantity={value} />
-              {/*{value && <span>{value}</span>}*/}
             </li>
           ))}
         </ul>
 
-        <button>Show more</button>
+        <div className={s.backdropContainer}>
+          <PortalButton camper={camper} btnText="Show more" />
+        </div>
       </div>
     </li>
   );
