@@ -7,4 +7,62 @@
 
 .modal {
   @extend %modal;
+
+  height: 100dvh;
+
+  overflow-y: auto;
+
+  max-height: 752px;
+  max-width: 672px;
+
+  @media (width < 768px) and (orientation: landscape) {
+    width: 100dvw;
+    height: 100dvh;
+  }
+
+  @media (width < 768px) and (orientation: portrait) {
+    max-width: 572px;
+  }
+
+  @media (768px <= width) and (orientation: portrait) {
+    padding: 24px;
+    max-width: 672px;
+  }
+
+  @media (width < 768px) {
+    width: 100%;
+    max-width: 672px;
+    //height: 100%;
+    //border-radius: 0;
+    padding: 15px;
+  }
+}
+
+.gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+//.galleryItem {
+//  width: 290px;
+//  height: 310px;
+//}
+
+.galleryImg {
+  width: 290px;
+  height: auto;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: baseline;
+  padding: 16px;
+  background: transparent;
 }

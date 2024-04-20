@@ -1,0 +1,17 @@
+@import "@/utils/styles/variables.module";
+
+.datepicker {
+  color: red;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: $mainWhiteColor;
+
+}
+
+.datepicker ::-webkit-input-placeholder,
+  .datepicker ::-moz-placeholder,
+  .datepicker :-ms-input-placeholder
+  {
+    color: green;
+  }

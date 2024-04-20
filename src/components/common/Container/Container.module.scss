@@ -1,18 +1,22 @@
-@import '../../../utils/variables/variables.module';
+@import '@/utils/styles/variables.module';
 
 .container {
   margin: 0 auto;
   padding: 0 16px;
 
-  @media (375px <= width) {
-    max-width: $mobile;
-  }
+  //@media (375px <= width) {
+  //  max-width: $mobile;
+  //}
 
-  @media (768px <= width) {
+  //@media (768px <= width) {
+  //  max-width: $mobile;
+  //}
+
+  @media (1440px <= width) {
     max-width: $tablet;
   }
 
-  @media (1440px <= width) {
+  @media (1440px < width) {
     max-width: $desktop;
   }
 }
