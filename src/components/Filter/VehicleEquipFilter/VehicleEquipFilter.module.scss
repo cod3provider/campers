@@ -1,0 +1,27 @@
+@import "@/utils/styles/variables.module";
+@import "@/utils/styles/placeholders.module";
+
+.fieldset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+.input {
+  &:checked + div {
+    border-color: $accentRedColor;
+  }
+}
+
+.wrap {
+  @extend %inputCheckWrap;
+
+  gap: 10px;
+  //flex-direction: column;
+}
+
+.input {
+  @extend %inputCheck;
+}
