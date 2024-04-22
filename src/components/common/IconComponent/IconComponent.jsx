@@ -15,6 +15,9 @@ import Water from "@/assets/icons/Water.svg";
 import Adults from "@/assets/icons/Adults.svg";
 import Transmission from "@/assets/icons/Transmission.svg";
 import Petrol from "@/assets/icons/Petrol.svg";
+import Alcove from "@/assets/icons/Alcove.svg";
+import FullyIntegrated from "@/assets/icons/FullyIntegrated.svg";
+import PanelTruck from "@/assets/icons/Van.svg";
 
 import s from './IconComponent.module.scss';
 
@@ -94,16 +97,48 @@ const IconComponent = ({ icon, text, quantity }) => {
       iconVar = Petrol;
       text = "petrol";
       break;
+			case "alcove":
+      iconVar = Alcove;
+			text = null;
+      break;
+			case "fullyIntegrated":
+      iconVar = FullyIntegrated;
+			text = null;
+      break;
+			case "panelTruck":
+      iconVar = PanelTruck;
+			text = null;
+      break;
+	  case "AC-Equip":
+		  iconVar = AC;
+		  text = null;
+		  break;
+	  case "TV-Equip":
+		  iconVar = TV;
+		  text = null;
+		  break;
+	  case "bathroom-Equip":
+		  iconVar = Shower;
+		  text = null;
+		  break;
+	  case "transmission-Equip":
+		  iconVar = Transmission;
+		  text = null;
+		  break;
+			case "kitchen-Equip":
+		  iconVar = Kitchen;
+		  text = null;
+		  break;
     default:
       iconVar = null;
-      text = "";
+      text = null;
   }
 
   return (
     <div className={s.wrap}>
       {iconVar && <img src={iconVar} alt={text} width="20" height="20" />}
-	    {quantity === text ? null : <span>{quantity}</span>}
-	    <p>{text}</p>
+      {quantity === text ? null : <span>{quantity}</span>}
+      {text !== null && <p>{text}</p>}
     </div>
   );
 };
