@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
 import IconComponent from "@/components/common/IconComponent/IconComponent.jsx";
+import Features from "@/components/Features/Features.jsx";
+import Reviews from "@/components/Reviews/Reviews.jsx";
+import OrderForm from "@/components/OrderForm/OrderForm.jsx";
+
+import s from "./Modal.module.scss";
 
 import { normalizeLocation } from "@/utils/helpers/normalizer.js";
 
-import s from "./Modal.module.scss";
 import Star from "@/assets/icons/Star.svg";
 import Pin from "@/assets/icons/Pin.svg";
 // import {
@@ -15,9 +19,6 @@ import Pin from "@/assets/icons/Pin.svg";
 //   useLocation,
 //   useParams,
 // } from "react-router-dom";
-import Features from "@/components/Features/Features.jsx";
-import Reviews from "@/components/Reviews/Reviews.jsx";
-import OrderForm from "@/components/OrderForm/OrderForm.jsx";
 
 const Modal = ({ camperInfo, onClose }) => {
   const {
@@ -88,38 +89,36 @@ const Modal = ({ camperInfo, onClose }) => {
   return (
     <div className={s.backdrop} onClick={onBackdropClick}>
       <div className={s.modal}>
-        <div onClick={(e) => e.stopPropagation()}>
-          <div>
-            <div>
-              <h2>{name}</h2>
+        {/*<div onClick={(e) => e.stopPropagation()}>*/}
+        <div className={s.titleWrap}>
+          <h2 className={s.title}>{name}</h2>
 
-              <div>
-                <span>
-                  <img src={Star} alt="icon of star" width="16" height="16" />
-                  {rating}({reviews.length} Reviews)
-                </span>
+          <div className={s.wrapper}>
+            <div className={s.locationWrap}>
+              <span className={s.rating}>
+                <img src={Star} alt="icon of star" width="16" height="16" />
+                {rating}({reviews.length} Reviews)
+              </span>
 
-                <p>
-                  <img src={Pin} alt="icon of pin map" width="16" height="16" />
-                  <span>{normalizeLocation(location_camper)}</span>
-                </p>
+              <div className={s.location}>
+                <img src={Pin} alt="icon of pin map" width="16" height="16" />
+                <span>{normalizeLocation(location_camper)}</span>
               </div>
-
-              <p>${price}</p>
             </div>
 
-            <div>
-              <ul className={s.gallery}>
-                {gallery.map((item, idx) => (
-                  <li className={s.galleryItem} key={idx}>
-                    <img className={s.galleryImg} src={item} alt={name} />
-                  </li>
-                ))}
-              </ul>
-
-              <p>{description}</p>
-            </div>
+            <p className={s.price}>${price}</p>
           </div>
+          {/*</div>*/}
+        </div>
+
+        <div>
+        <ul className={s.gallery}>
+          {gallery.map((item, idx) => (
+            <li className={s.galleryItem} key={idx}>
+              <img className={s.galleryImg} src={item} alt={name} />
+            </li>
+          ))}
+        </ul>
         </div>
 
         <button className={s.closeBtn} onClick={closeModal}>
@@ -152,13 +151,19 @@ const Modal = ({ camperInfo, onClose }) => {
         {/*</Suspense>*/}
 
         <div>
-          <button onClick={handleFeaturesClick}>Features</button>
-          <button onClick={handleReviewsClick}>Reviews</button>
+          <p className={s.description}>{description}</p>
+
+          <div>
+            <button onClick={handleFeaturesClick}>Features</button>
+            <button onClick={handleReviewsClick}>Reviews</button>
+          </div>
+
+          <div>
+            <div>{content}</div>
+
+            <OrderForm />
+          </div>
         </div>
-	      <div>
-	        {content}
-		      <OrderForm />
-	      </div>
       </div>
     </div>
   );

@@ -8,12 +8,14 @@
 .modal {
   @extend %modal;
 
+  gap: 24px;
   height: 100dvh;
 
   overflow-y: auto;
 
   max-height: 752px;
   max-width: 672px;
+  background-color: #fff;
 
   @media (width < 768px) and (orientation: landscape) {
     width: 100dvw;
@@ -40,6 +42,7 @@
 
 .gallery {
   display: flex;
+  flex-wrap: nowrap;
   gap: 16px;
   overflow-x: scroll;
   scrollbar-width: none;
@@ -50,9 +53,45 @@
 //  height: 310px;
 //}
 
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .galleryImg {
   width: 290px;
   height: auto;
+}
+
+.locationWrap {
+  display: flex;
+  gap: 16px;
+}
+
+.location,
+.rating {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
 }
 
 .closeBtn {
@@ -65,4 +104,9 @@
   align-self: baseline;
   padding: 16px;
   background: transparent;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.5;
 }
