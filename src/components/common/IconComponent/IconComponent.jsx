@@ -21,7 +21,7 @@ import PanelTruck from "@/assets/icons/Van.svg";
 
 import s from './IconComponent.module.scss';
 
-const IconComponent = ({ icon, text, quantity }) => {
+const IconComponent = ({ icon, text, quantity, width = '20', height = '20' }) => {
   let iconVar;
 
   switch (icon) {
@@ -136,7 +136,7 @@ const IconComponent = ({ icon, text, quantity }) => {
 
   return (
     <div className={s.wrap}>
-      {iconVar && <img src={iconVar} alt={text} width="20" height="20" />}
+      {iconVar && <img src={iconVar} alt={text} width={width} height={height} />}
       {quantity === text ? null : <span>{quantity}</span>}
       {text !== null && <p>{text}</p>}
     </div>
