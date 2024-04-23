@@ -1,55 +1,43 @@
 import Container from "../../components/common/Container/Container.jsx";
-import {getCamperById, getCampers, PER_PAGE} from "@/utils/api/api.js";
-import {useEffect, useState} from "react";
-// import Button from "../../components/common/Button/Button.jsx";
+import { useEffect } from "react";
 import CardsList from "../../components/CardsList/CardsList.jsx";
-
-
+import Filter from "@/components/Filter/Filter.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCampers, selectPage } from "@/store/selectors.js";
+import { fetchCampers } from "@/store/operations.js";
+import { setFilter } from "@/store/filter/filterSlice.js";
+import { setPage } from "@/store/campers/campersSlice.js";
 
 const Catalog = (props) => {
-	const [page, setPage] = useState(1);
-	const [totalPages, setTotalPages] = useState(0);
-	const [adverts, setAdverts] = useState([]);
+  const dispatch = useDispatch();
+  const { campers, isShowBtn } = useSelector(selectCampers);
+  const page = useSelector(selectPage);
 
-	useEffect(() => {
-		const getItems = async () => {
-			try {
-				const campers = await getCampers(page);
-				const totalCampers = campers.length;
+  useEffect(() => {
+    dispatch(fetchCampers());
+  }, [dispatch]);
 
-				if (page === 1) {
-					setTotalPages(Math.ceil(totalCampers / PER_PAGE));
-				}
-			}
-			catch (err) {
-				console.log(err);
-			}
-		}
+  const handleFilter = (data) => {
+    dispatch(setPage(1));
+    dispatch(setFilter(data));
+  };
 
-		getItems();
-	}, [page]);
+  const handleClick = () => {
+    console.log(page);
+    dispatch(setPage(page + 1));
+    console.log(page);
+  };
 
-	// const handleLoadMore = () => {
-	// 	setPage(prevPage => prevPage + 1);
-	// }
-	//
-	// const isLoadMore = adverts.length > 0 && page !== totalPages;
-
-	// const renderPagination = () => {
-	// 	const items = [];
-	//
-	// 	for (let i = 0; i <= totalPages; i += 1) {
-	// 		items.push()
-	// 	}
-	// }
-
-	return (
-		<Container>
-			Catalog
-			<CardsList />
-			{/*{isLoadMore && <Button text="Load more" onClick={handleLoadMore} />}*/}
-		</Container>
-	)
+  return (
+    <Container>
+      Catalog
+      {/*<aside>*/}
+      <Filter />
+      {/*</aside>*/}
+      <CardsList campers={campers} />
+      {isShowBtn && <button onClick={handleClick}>Load more</button>}
+    </Container>
+  );
 };
 
 export default Catalog;

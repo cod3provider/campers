@@ -3,14 +3,9 @@ import { instance } from "../utils/api/api.js";
 
 export const fetchCampers = createAsyncThunk(
   "campers/fetchCampers",
-  async (page = 1, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const { data } = await instance.get("/", {
-        params: {
-          page: page,
-          limit: 4,
-        },
-      });
+      const { data } = await instance.get("/");
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err);
