@@ -14,7 +14,8 @@
   overflow-y: auto;
 
   max-height: 752px;
-  max-width: 672px;
+  //max-width: 672px;
+  max-width: 982px;
   background-color: #fff;
 
   @media (width < 768px) and (orientation: landscape) {
@@ -107,6 +108,24 @@
 }
 
 .description {
+  margin-bottom: 44px;
   font-size: 16px;
   line-height: 1.5;
+}
+
+.btnWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 44px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+}
+
+.btn {
+  padding: 0 0 24px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  background-color: transparent;
 }

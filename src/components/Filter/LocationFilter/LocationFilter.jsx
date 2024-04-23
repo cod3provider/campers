@@ -1,4 +1,5 @@
 import { Select } from "antd";
+import s from "./Location.module.scss";
 
 const LocationFilter = ({ onChange, filters }) => {
   const locationsArr = [
@@ -15,11 +16,11 @@ const LocationFilter = ({ onChange, filters }) => {
     onChange(value, "location");
   };
 
-  console.log(filters);
+  // console.log(filters);
 
   return (
     <div>
-      <label>
+      <label className={s.label}>
         Location
         <Select
           defaultValue={filters.location || "Kyiv, Ukraine"}

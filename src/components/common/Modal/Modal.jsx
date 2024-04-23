@@ -153,9 +153,9 @@ const Modal = ({ camperInfo, onClose }) => {
         <div>
           <p className={s.description}>{description}</p>
 
-          <div>
-            <button onClick={handleFeaturesClick}>Features</button>
-            <button onClick={handleReviewsClick}>Reviews</button>
+          <div className={s.btnWrap}>
+            <button className={s.btn} onClick={handleFeaturesClick}>Features</button>
+            <button className={s.btn} onClick={handleReviewsClick}>Reviews</button>
           </div>
 
           <div>
