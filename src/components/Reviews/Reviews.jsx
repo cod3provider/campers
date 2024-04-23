@@ -2,12 +2,11 @@ const Reviews = ({reviews}) => {
 	console.log(reviews)
 	return(
 		<div>
-			<p>Reviews</p>
 			<ul>
-				{reviews.map((review, idx) => <li key={idx}>
-					<p>{review.comment}</p>
-					<p>{review.reviewer_name}</p>
-					<p>{review.reviewer_rating}</p>
+				{reviews.map(({comment, reviewer_name, reviewer_rating}, idx) => <li key={idx}>
+					<p>{comment}</p>
+					<p>{reviewer_name}</p>
+					<p>{reviewer_rating}</p>
 				</li>)
 				}
 			</ul>

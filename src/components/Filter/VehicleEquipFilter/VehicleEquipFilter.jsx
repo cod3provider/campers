@@ -1,6 +1,6 @@
 import IconComponent from "@/components/common/IconComponent/IconComponent.jsx";
 
-import s from './VehicleEquipFilter.module.scss';
+import s from "./VehicleEquipFilter.module.scss";
 
 const VehicleEquipFilter = ({ onChange, filters }) => {
   const equips = [
@@ -32,25 +32,32 @@ const VehicleEquipFilter = ({ onChange, filters }) => {
   ];
 
   return (
-    <>
-      <h2>Vehicle equipment</h2>
+    <div className={s.equip}>
+      <h2 className={s.title}>Vehicle equipment</h2>
       <fieldset className={s.fieldset}>
         {equips.map((item) => (
-          <div className={s.wrap} key={item.key}>
+          <div
+            className={s.wrap}
+            key={item.key}
+            style={{
+              borderColor:
+                filters[item.key] === item.value ? "#E44848" : "rgba(16, 24, 40, 0.2)",
+            }}
+          >
             <input
-	            className={s.input}
+              className={s.input}
               name={item.key}
               value={item.value}
               onChange={(e) => onChange(e.target)}
               checked={filters[item.key] === item.value}
               type="checkbox"
             />
-	          {item.text}
-            <IconComponent icon={item.key} text='null' />
+            <IconComponent icon={item.key} text="null" width = "32" height = "32" />
+            {item.text}
           </div>
         ))}
       </fieldset>
-    </>
+    </div>
   );
 };
 

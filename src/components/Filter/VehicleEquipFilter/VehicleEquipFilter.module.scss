@@ -1,12 +1,29 @@
 @import "@/utils/styles/variables.module";
 @import "@/utils/styles/placeholders.module";
 
+.equip {
+  //margin-top: 32px;
+}
+
+.title {
+  @extend %filterTitle;
+
+
+  //&:after {
+  //  content: '_';
+  //  border-bottom: 1px solid black;
+  //  width: 100%;
+  //  position: absolute;
+  //  bottom: 24px;
+  //  left: 0;
+  //  height: 1px;
+  //}
+}
+
 .fieldset {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 10px;
+  @extend %fieldset;
+
+  gap: 8px 7px;
 }
 
 .input {
@@ -17,9 +34,6 @@
 
 .wrap {
   @extend %inputCheckWrap;
-
-  gap: 10px;
-  //flex-direction: column;
 }
 
 .input {
