@@ -1,5 +1,5 @@
-import s from "@/components/common/Modal/Modal.module.scss";
 import IconComponent from "@/components/common/IconComponent/IconComponent.jsx";
+import s from './Features.module.scss';
 
 const Features = ({ carId, features }) => {
   const { details, form, length, width, height, tank, consumption } = features;
@@ -10,10 +10,9 @@ const Features = ({ carId, features }) => {
 
   return (
     <div>
-      <h3>Features</h3>
-      <ul>
+      <ul className={s.listDetails}>
         {Object.entries(details).map(([key, value], idx) => (
-          <li key={idx}>
+          <li className={s.itemDetails} key={idx}>
             <IconComponent icon={key} text={value} quantity={value} />
           </li>
         ))}
