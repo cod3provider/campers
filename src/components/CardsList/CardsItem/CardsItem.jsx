@@ -22,6 +22,8 @@ const CardsItem = ({ camper }) => {
     engine,
   } = camper;
 
+	// console.log(location)
+
   // console.log(camper);
 
   const { beds, airConditioner: AC, kitchen } = details;
