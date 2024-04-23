@@ -1,7 +1,7 @@
 import IconComponent from "@/components/common/IconComponent/IconComponent.jsx";
 import s from "./VehicleTypeFilter.module.scss";
 
-const VehicleTypeFilter = ({ onChange ,filters}) => {
+const VehicleTypeFilter = ({ onChange, filters }) => {
   const vehicleTypes = [
     {
       key: "panelTruck",
@@ -21,11 +21,20 @@ const VehicleTypeFilter = ({ onChange ,filters}) => {
   ];
 
   return (
-    <>
-      <h2>Vehicle type</h2>
+    <div className={s.typeFilter}>
+      <h2 className={s.title}>Vehicle type</h2>
       <fieldset className={s.fieldset}>
         {vehicleTypes.map((item) => (
-          <div className={s.wrap} key={item.key}>
+          <div
+            className={s.wrap}
+            key={item.key}
+            style={{
+              borderColor:
+                filters[item.key] === item.value
+                  ? "#E44848"
+                  : "rgba(16, 24, 40, 0.2)",
+            }}
+          >
             <input
               className={s.input}
               name={item.key}
@@ -34,12 +43,12 @@ const VehicleTypeFilter = ({ onChange ,filters}) => {
               checked={filters[item.key] === item.value}
               type="checkbox"
             />
-	          {item.text}
-            <IconComponent icon={item.key} text={null} />
+            <IconComponent icon={item.key} text={null} width="40" height="28" />
+            {item.text}
           </div>
         ))}
       </fieldset>
-    </>
+    </div>
   );
 };
 

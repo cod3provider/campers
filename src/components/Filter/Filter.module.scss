@@ -1,0 +1,36 @@
+@import '@/utils/styles/variables.module';
+
+.form {
+  width: 360px;
+  text-align: start;
+}
+
+.filtersWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.filtersSup {
+  margin-bottom: 14px;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.btn {
+  padding: 16px 60px;
+  width: 173px;
+  height: 56px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  background-color: $accentRedColor;
+  color: #fff;
+}

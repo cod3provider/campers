@@ -1,23 +1,27 @@
 @import '@/utils/styles/variables.module';
 @import '@/utils/styles/placeholders.module';
 
+.typeFilter {
+  //margin-top: 32px;
+}
+
+.title {
+  @extend %filterTitle;
+}
+
 .fieldset {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+@extend %fieldset;
 }
 
 .wrap {
   @extend %inputCheckWrap;
-
-  flex-direction: column;
 }
 
 .input {
   @extend %inputCheck;
 }
 
-.input:checked + .wrap {
-  border-color: $accentRedColor;
+.test {
+  width: 40px;
+  height: 40px;
 }
