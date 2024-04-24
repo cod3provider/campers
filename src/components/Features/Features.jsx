@@ -1,31 +1,41 @@
 import IconComponent from "@/components/common/IconComponent/IconComponent.jsx";
-import s from './Features.module.scss';
+import s from "./Features.module.scss";
 
 const Features = ({ carId, features }) => {
   const { details, form, length, width, height, tank, consumption } = features;
-	// console.log(features)
+  // console.log(features)
 
   const vehicleDetails = { form, length, width, height, tank, consumption };
-	// console.log(vehicleDetails)
+  // console.log(vehicleDetails)
 
   return (
-    <div>
+    <div className={s.listsWrap}>
       <ul className={s.listDetails}>
         {Object.entries(details).map(([key, value], idx) => (
           <li className={s.itemDetails} key={idx}>
-            <IconComponent icon={key} text={value} quantity={value} />
+            <IconComponent
+              className={s.iconComponent}
+              icon={key}
+              text={key}
+              quantity={value}
+            />
           </li>
         ))}
       </ul>
-	    <p>Vehicle details</p>
-	    <ul>
-		    {Object.entries(vehicleDetails).map(([key, value], idx) => (
-			    <li key={idx}>
-				    <span>{key}</span>
-				    <p>{value}</p>
-			    </li>
-		    ))}
-	    </ul>
+
+      <div>
+        <p>Vehicle details</p>
+        <ul className={s.listFeatures}>
+          {Object.entries(vehicleDetails).map(([key, value], idx) => (
+            <li className={s.featuresItem} key={idx}>
+              <span className={s.textValue}>{key}</span>
+              <p className={s.value}>
+	              {value}
+							</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
