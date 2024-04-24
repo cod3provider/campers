@@ -39,3 +39,10 @@
 .input {
   @extend %inputCheck;
 }
+
+.iconComponent {
+  @extend %iconComponent;
+
+  flex-direction: column;
+  gap: 4px;
+}

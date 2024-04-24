@@ -43,7 +43,13 @@ const VehicleTypeFilter = ({ onChange, filters }) => {
               checked={filters[item.key] === item.value}
               type="checkbox"
             />
-            <IconComponent icon={item.key} text={null} width="40" height="28" />
+            <IconComponent
+              className={s.iconComponent}
+              icon={item.key}
+              text={null}
+              width="40"
+              height="28"
+            />
             {item.text}
           </div>
         ))}

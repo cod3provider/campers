@@ -5,27 +5,27 @@ import s from "./VehicleEquipFilter.module.scss";
 const VehicleEquipFilter = ({ onChange, filters }) => {
   const equips = [
     {
-      key: "AC-Equip",
+      key: "AC",
       value: "1",
       text: "AC",
     },
     {
-      key: "transmission-Equip",
+      key: "transmission",
       value: "automatic",
       text: "Automatic",
     },
     {
-      key: "kitchen-Equip",
+      key: "kitchen",
       value: "1",
       text: "Kitchen",
     },
     {
-      key: "TV-Equip",
+      key: "TV",
       value: "1",
       text: "TV",
     },
     {
-      key: "bathroom-Equip",
+      key: "bathroom",
       value: "1",
       text: "Shower/WC",
     },
@@ -35,25 +35,30 @@ const VehicleEquipFilter = ({ onChange, filters }) => {
     <div className={s.equip}>
       <h2 className={s.title}>Vehicle equipment</h2>
       <fieldset className={s.fieldset}>
-        {equips.map((item) => (
+        {equips.map(({ key, text, value }) => (
           <div
             className={s.wrap}
-            key={item.key}
+            key={key}
             style={{
               borderColor:
-                filters[item.key] === item.value ? "#E44848" : "rgba(16, 24, 40, 0.2)",
+                filters[key] === value ? "#E44848" : "rgba(16, 24, 40, 0.2)",
             }}
           >
             <input
               className={s.input}
-              name={item.key}
-              value={item.value}
+              name={key}
+              value={value}
               onChange={(e) => onChange(e.target)}
-              checked={filters[item.key] === item.value}
+              checked={filters[key] === value}
               type="checkbox"
             />
-            <IconComponent icon={item.key} text="null" width = "32" height = "32" />
-            {item.text}
+            <IconComponent
+              className={s.iconComponent}
+              icon={key}
+              text={text}
+              width="32"
+              height="32"
+            />
           </div>
         ))}
       </fieldset>
