@@ -7,6 +7,12 @@
   white-space: nowrap;
 }
 
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .textWrapper {
   display: flex;
   flex-direction: column;
@@ -29,6 +35,12 @@
   align-items: center;
 }
 
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
 .img {
   object-fit: cover;
   width: 290px;
@@ -37,22 +49,11 @@
 }
 
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  @extend %filterList;
 }
 
 .filterItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 18px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
-  text-align: center;
-  border-radius: 25px;
-  background-color: $mainWhiteColor;
+  @extend %itemFilterList;
 }
 
 .location {
@@ -76,4 +77,10 @@
 
 .backdropContainer {
   @extend %backdrop-container;
+}
+
+.iconComponent {
+  @extend %iconComponent;
+
+  gap: 4px;
 }

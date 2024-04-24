@@ -4,7 +4,7 @@ import s from "./CardsItem.module.scss";
 
 import Pin from "@/assets/icons/Pin.svg";
 import Star from "@/assets/icons/Star.svg";
-import {normalizeLocation} from "@/utils/helpers/normalizer.js";
+import { normalizeLocation } from "@/utils/helpers/normalizer.js";
 
 const CardsItem = ({ camper }) => {
   const {
@@ -22,7 +22,7 @@ const CardsItem = ({ camper }) => {
     engine,
   } = camper;
 
-	// console.log(location)
+  // console.log(location)
 
   // console.log(camper);
 
@@ -33,10 +33,10 @@ const CardsItem = ({ camper }) => {
     <li className={s.item} key={_id}>
       <img className={s.img} src={gallery[0]} alt={name} />
       <div className={s.textWrapper}>
-        <div>
+        <div className={s.titleWrap}>
           <div className={s.nameWrap}>
             <h2>{name}</h2>
-            <p>${price}</p>
+            <p className={s.price}>${price.toFixed(2)}</p>
           </div>
 
           <div className={s.desc}>
@@ -57,7 +57,12 @@ const CardsItem = ({ camper }) => {
         <ul className={s.list}>
           {Object.entries(obj).map(([key, value], idx) => (
             <li className={s.filterItem} key={idx}>
-              <IconComponent icon={key} text={value} quantity={value} />
+              <IconComponent
+                className={s.iconComponent}
+                icon={key}
+                text={typeof value === "string" ? value : key}
+                quantity={value}
+              />
             </li>
           ))}
         </ul>
