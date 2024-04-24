@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import IconComponent from "@/components/common/IconComponent/IconComponent.jsx";
 import Features from "@/components/Features/Features.jsx";
 import Reviews from "@/components/Reviews/Reviews.jsx";
 import OrderForm from "@/components/OrderForm/OrderForm.jsx";
@@ -11,14 +10,6 @@ import { normalizeLocation } from "@/utils/helpers/normalizer.js";
 
 import Star from "@/assets/icons/Star.svg";
 import Pin from "@/assets/icons/Pin.svg";
-// import {
-//   Link,
-//   Outlet,
-//   Route,
-//   Routes,
-//   useLocation,
-//   useParams,
-// } from "react-router-dom";
 
 const Modal = ({ camperInfo, onClose }) => {
   const {
@@ -32,10 +23,8 @@ const Modal = ({ camperInfo, onClose }) => {
     location: location_camper,
   } = camperInfo;
 
-  // const { beds, airConditioner: AC, kitchen } = details;
-
-  // const features = {length, width, height, tank, transmission}
-  // const obj = { adults, transmission, engine, beds, AC, kitchen };
+  const [isOpen, setIsOpen] = useState(true);
+  const [activeTab, setActiveTab] = useState("features");
 
   const closeModal = () => {
     onClose();
@@ -61,7 +50,17 @@ const Modal = ({ camperInfo, onClose }) => {
     }
   };
 
-  const [isOpen, setIsOpen] = useState(true);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   const [content, setContent] = useState(
     <Features features={camperInfo} carId={_id} />,
@@ -69,22 +68,13 @@ const Modal = ({ camperInfo, onClose }) => {
 
   const handleFeaturesClick = () => {
     setContent(<Features features={camperInfo} carId={_id} />);
+    setActiveTab("features");
   };
 
   const handleReviewsClick = () => {
     setContent(<Reviews reviews={reviews} carId={_id} />);
+    setActiveTab("reviews");
   };
-
-  //
-  // const { carId } = useParams();
-
-  // useEffect(() => {
-  // 	setIsOpen(true);
-  // }, [carId]);
-
-  // const location = useLocation();
-  //
-  // const from = location.state?.from ?? "/";
 
   return (
     <div className={s.backdrop} onClick={onBackdropClick}>
@@ -106,19 +96,44 @@ const Modal = ({ camperInfo, onClose }) => {
               </div>
             </div>
 
-            <p className={s.price}>${price}</p>
+            <p className={s.price}>${price.toFixed(2)}</p>
           </div>
           {/*</div>*/}
         </div>
 
         <div>
-        <ul className={s.gallery}>
-          {gallery.map((item, idx) => (
-            <li className={s.galleryItem} key={idx}>
-              <img className={s.galleryImg} src={item} alt={name} />
-            </li>
-          ))}
-        </ul>
+          <ul className={s.gallery}>
+            {gallery.map((item, idx) => (
+              <li className={s.galleryItem} key={idx}>
+                <img className={s.galleryImg} src={item} alt={name} />
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className={s.description}>{description}</p>
+
+          <div className={s.btnWrap}>
+            <button
+              className={`${s.btn} ${activeTab === "features" ? s.activeBtn : ""}`}
+              onClick={handleFeaturesClick}
+            >
+              Features
+            </button>
+            <button
+              className={`${s.btn} ${activeTab === "reviews" ? s.activeBtn : ""}`}
+              onClick={handleReviewsClick}
+            >
+              Reviews
+            </button>
+          </div>
+
+          <div className={s.contentFormWrapper}>
+            <div className={s.contentWrap}>{content}</div>
+
+            <OrderForm onClose={closeModal} />
+          </div>
         </div>
 
         <button className={s.closeBtn} onClick={closeModal}>
@@ -145,25 +160,6 @@ const Modal = ({ camperInfo, onClose }) => {
             />
           </svg>
         </button>
-
-        {/*<Suspense fallback={<p>...Loading</p>}>*/}
-        {/*  <Outlet />*/}
-        {/*</Suspense>*/}
-
-        <div>
-          <p className={s.description}>{description}</p>
-
-          <div className={s.btnWrap}>
-            <button className={s.btn} onClick={handleFeaturesClick}>Features</button>
-            <button className={s.btn} onClick={handleReviewsClick}>Reviews</button>
-          </div>
-
-          <div>
-            <div>{content}</div>
-
-            <OrderForm />
-          </div>
-        </div>
       </div>
     </div>
   );
