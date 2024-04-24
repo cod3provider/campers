@@ -1,0 +1,27 @@
+@import '@/utils/styles/variables.module';
+
+@mixin paddingsVertical($padT, $padB) {
+  padding-top: $padT;
+  padding-bottom: $padB;
+}
+
+@mixin mainSection {
+  @include paddingsVertical(
+      $sectionPaddingTopMobile,
+      $sectionPaddingBottomMobile
+  );
+
+  @media ($tablet <= width) {
+    @include paddingsVertical(
+      $sectionPaddingTopTablet,
+      $sectionPaddingBottomTablet
+    );
+  }
+
+  @media ($desktop <= width) {
+    @include paddingsVertical(
+      $sectionPaddingTopDesktop,
+      $sectionPaddingBottomDesktop
+    );
+  }
+}
