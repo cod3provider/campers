@@ -5,6 +5,8 @@ import {
   handlePendingCampers,
   handleRejectedCampers,
 } from "./campersHandlers.js";
+import {persistReducer} from "redux-persist";
+import storage from 'redux-persist/lib/storage';
 
 const campersSlice = createSlice({
   name: "campers",
@@ -23,6 +25,7 @@ const campersSlice = createSlice({
         ? state.favorites.filter((favorite) => favorite !== payload)
         : [...state.favorites, payload];
     },
+
     setPage: (state, { payload }) => {
       state.page = payload;
     },
@@ -49,5 +52,10 @@ const campersSlice = createSlice({
   },
 });
 
-export const campersReducer = campersSlice.reducer;
+const persistedReducer = persistReducer(
+  {key: 'campers', storage},
+  campersSlice.reducer
+);
 export const { toggleFavorites, setPage } = campersSlice.actions;
+
+export default persistedReducer;

@@ -1,11 +1,23 @@
-import { createSelector } from "@reduxjs/toolkit";
+import { createSelector } from 'reselect';
 
 export const selectCampersItems = (state) => state.campers.items;
-export const selectFavorites = (state) => state.campers.favorites;
+export const selectFavoritesCampers = (state) => state.campers.favorites;
 export const selectError = (state) => state.campers.error;
-export const isLoading = (state) => state.campers.isLoading;
+export const selectIsLoading = (state) => state.campers.isLoading;
 export const selectFilter = (state) => state.filter;
 export const selectPage = (state) => state.campers.page;
+
+export const selectCamperById = (id) => (state) => {
+  return state.campers.items.find((camper) => camper._id === id);
+};
+
+export const selectFavorites = createSelector(
+  [selectCampersItems, selectFavoritesCampers],
+  (campers, favorites) => {
+    console.log(favorites)
+    return campers.filter(camper => favorites.includes(camper._id));
+  }
+);
 
 export const selectCampers = createSelector(
   [selectCampersItems, selectFilter, selectPage],
