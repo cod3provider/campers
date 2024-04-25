@@ -1,0 +1,9 @@
+.btn {
+  background-color: transparent;
+  transition: transform 0.3s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+}

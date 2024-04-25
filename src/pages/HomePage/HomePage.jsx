@@ -1,6 +1,6 @@
 import Container from "../../components/common/Container/Container.jsx";
 
-const Home = () => {
+const HomePage = () => {
 	return (
 		<Container>
 			Home
@@ -8,4 +8,4 @@ const Home = () => {
 	)
 }
 
-export default Home;
+export default HomePage;
