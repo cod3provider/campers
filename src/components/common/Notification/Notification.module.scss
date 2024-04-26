@@ -1,0 +1,8 @@
+@import "@/utils/styles/variables.module.scss";
+
+.Notification {
+  margin: 20px auto 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: $hoverColor;
+}

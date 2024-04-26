@@ -5,7 +5,3 @@ export const normalizeLocation = (str) => {
   return reversedString.slice(0, -1);
 };
 
-// const createObjFilter = (details) => {
-//   const { beds, airConditioner: AC, kitchen } = details;
-//   return { beds, AC, kitchen };
-// };

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="body_1" width="20" height="20" viewBox="0 0 32 32">
+
+  <g transform="matrix(1 0 0 1 0 0)">
+    <path d="M24 26L8 26C 5.784 26 4 24.216 4 22L4 22L4 12C 4 9.784 5.784 8 8 8L8 8L24 8C 26.216 8 28 9.784 28 12L28 12L28 22C 28 24.216 26.216 26 24 26z" stroke="#101828" stroke-width="1.8" stroke-linecap="square" fill="none" />
+    <path d="M12 30L20 30" stroke="#101828" stroke-width="1.8" stroke-linecap="square" fill="none" />
+    <path d="M16 8L22 2" stroke="#101828" stroke-width="1.8" stroke-linecap="square" fill="none" />
+    <path d="M16 8L10 2" stroke="#101828" stroke-width="1.8" stroke-linecap="square" fill="none" />
+  </g>
+</svg>

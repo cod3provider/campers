@@ -1,0 +1,23 @@
+@import "@/utils/styles/variables.module";
+
+.EquipmentBtn {
+  display: inline-flex;
+  height: 95px;
+  width: 113px;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+  border: 1px solid $mainDarkColor;
+  border-radius: 10px;
+  font-weight: 500;
+  line-height: 1.25;
+  font-family: inherit;
+  transition: transform 0.3s ease;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+}

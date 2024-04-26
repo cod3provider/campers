@@ -1,0 +1,28 @@
+@import "variables.module";
+
+.react-datepicker {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid $mainDarkColor;
+  color: $mainDarkColor;
+}
+
+.react-datepicker__header.react-datepicker__header--custom {
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  border: none;
+  margin-bottom: 24px;
+}
+
+.react-datepicker__day-name {
+  color: $secondaryTextColor;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
