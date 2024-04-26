@@ -1,11 +1,14 @@
-import { Circles } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
 export const Loader = () => (
-  <Circles
-    color="#3f51b5"
-    height={100}
-    width={100}
-    wrapperStyle={{ margin: '0 auto' }}
-  />
+	<Oval
+		visible={true}
+		height="80"
+		width="80"
+		color="#4fa94d"
+		ariaLabel="oval-loading"
+		wrapperStyle={{}}
+		wrapperClass=""
+	/>
 );
 
 export default Loader;

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import styles from './Input.module.scss';
 
 const Input = forwardRef(({ label, icon: Icon, ...props }, ref) => {
-	console.log(Icon)
+
 	return (
     <label className={styles.inputWrapper}>
       {label}
