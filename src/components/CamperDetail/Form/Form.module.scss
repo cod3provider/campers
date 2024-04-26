@@ -1,0 +1,28 @@
+@import '@/utils/styles/variables.module';
+
+.form {
+  padding: 24px;
+  width: 448px;
+  height: 532px;
+  border-radius: 10px;
+  border: 1px solid $mainDarkColor;
+  flex-shrink: 0;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.inputList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.text {
+  margin-bottom: 24px;
+}

@@ -1,9 +1,38 @@
+@import "@/utils/styles/variables.module";
+
 .header {
-  width: 100%;
+  margin-bottom: 50px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.wrapper {
+.nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  padding: 10px;
+}
+
+.list {
+  display: flex;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.navLink {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  margin: 0 0 0 7px;
+  color: $secondaryTextColor;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header .navLink:hover,
+.header .navLink:focus {
+  transform: scale(1.1);
 }

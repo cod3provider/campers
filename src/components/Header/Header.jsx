@@ -1,17 +1,35 @@
-import Logo from "../Logo/Logo.jsx";
-import NavList from "./NavList/NavList.jsx";
+import { NavLink, Outlet } from 'react-router-dom';
 
-import s from './Header.module.scss';
+import Logo from "@/components/Logo/Logo.jsx";
 
-const Header = () => {
-	return (
-		<header className={s.header}>
-			<div className={s.wrapper}>
-				<Logo/>
-				<NavList/>
-			</div>
-		</header>
-	)
-}
+import styles from './Header.module.scss';
+
+const Header = () => (
+  <>
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+	      <Logo/>
+        <ul className={styles.list}>
+          <li>
+            <NavLink exact="true" to="/" className={styles.navLink}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/catalog" className={styles.navLink}>
+              Catalog
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/favorites" className={styles.navLink}>
+              Favorites
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <Outlet />
+  </>
+);
 
 export default Header;

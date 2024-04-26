@@ -1,0 +1,39 @@
+.featuresContainer {
+  display: flex;
+  width: 430px;
+  height: 532px;
+  flex-direction: column;
+}
+
+.featuresList {
+  display: flex;
+  height: 200px;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.featuresTitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 44px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #1018281a;
+}
+
+.detailsList {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detailsItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.33;
+}
