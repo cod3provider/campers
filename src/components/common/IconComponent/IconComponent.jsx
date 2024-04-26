@@ -1,144 +1,107 @@
-import AC from "@/assets/icons/AC.svg";
-import CD from "@/assets/icons/CD.svg";
-import TV from "@/assets/icons/TV.svg";
-import AirConditioner from "@/assets/icons/AirConditioner.svg";
-import Bed from "@/assets/icons/Bed.svg";
-import Freezer from "@/assets/icons/Freezer.svg";
-import Gas from "@/assets/icons/Gas.svg";
-import Hob from "@/assets/icons/Hob.svg";
-import Kitchen from "@/assets/icons/Kitchen.svg";
-import Microwave from "@/assets/icons/Microwave.svg";
-import Radio from "@/assets/icons/Radio.svg";
-import Shower from "@/assets/icons/Shower.svg";
-import Toilet from "@/assets/icons/Toilet.svg";
-import Water from "@/assets/icons/Water.svg";
-import Adults from "@/assets/icons/Adults.svg";
-import Transmission from "@/assets/icons/Transmission.svg";
-import Petrol from "@/assets/icons/Petrol.svg";
-import Alcove from "@/assets/icons/Alcove.svg";
-import FullyIntegrated from "@/assets/icons/FullyIntegrated.svg";
-import PanelTruck from "@/assets/icons/Van.svg";
+import AirConditioner from '@/assets/icons/AirConditioner.svg';
+import Bed from '@/assets/icons/Bed.svg';
+import CD from '@/assets/icons/CD.svg';
+import Freezer from '@/assets/icons/Freezer.svg';
+import Gas from '@/assets/icons/Gas.svg';
+import Hob from '@/assets/icons/Hob.svg';
+import Kitchen from '@/assets/icons/Kitchen.svg';
+import Microwave from '@/assets/icons/Microwave.svg';
+import Petrol from '@/assets/icons/Petrol.svg';
+import Radio from '@/assets/icons/Radio.svg';
+import Shower from '@/assets/icons/ShowerSmall.svg';
+import ToiletPaper from '@/assets/icons/ToiletPaper.svg';
+import Transmission from '@/assets/icons/Transmission.svg';
+import TV from '@/assets/icons/TVsmall.svg';
+import Users from '@/assets/icons/Users.svg';
+import Water from '@/assets/icons/Water.svg';
 
-import s from './IconComponent.module.scss';
+import styles from './IconComponent.module.scss';
 
-const IconComponent = ({ icon, text, quantity, width = '20', height = '20' }) => {
-  let iconVar;
+import { firstToUpperCase, makePluralOrSingular } from '@/utils/helpers/utils.js';
 
-  switch (icon) {
-    case "CD":
-      iconVar = CD;
-      text = "CD";
+const IconComponent = ({ attribute, text }) => {
+  if (!text) return null;
+
+  let iconValue;
+
+  switch (attribute) {
+    case 'airConditioner':
+      iconValue = AirConditioner;
+      text += ' Air Conditioner';
       break;
-    case "AC":
-      iconVar = AC;
-      text = "AC";
+    case 'bathroom':
+      iconValue = Shower;
+      text = firstToUpperCase(attribute);
       break;
-    case "TV":
-      iconVar = TV;
-      text = "TV";
+    case 'beds':
+      iconValue = Bed;
+      text += makePluralOrSingular(text, attribute);
       break;
-    case "airConditioner":
-      iconVar = AirConditioner;
-      text = "AirConditioner";
+    case 'CD':
+      iconValue = CD;
+      text = attribute;
       break;
-    case "bathroom":
-      iconVar = Shower;
-      text = "Bathroom";
+    case 'freezer':
+      iconValue = Freezer;
+      text = firstToUpperCase(attribute);
       break;
-    case "beds":
-      iconVar = Bed;
-      text = "beds";
+    case 'gas':
+      iconValue = Gas;
+      text = firstToUpperCase(attribute) + ' ' + text;
       break;
-    case "freezer":
-      iconVar = Freezer;
-      text = "Freezer";
+    case 'hob':
+      iconValue = Hob;
+      text += makePluralOrSingular(text, attribute);
       break;
-    case "gas":
-      iconVar = Gas;
-      text = "Gas";
+    case 'kitchen':
+      iconValue = Kitchen;
+      text = firstToUpperCase(attribute);
       break;
-    case "hob":
-      iconVar = Hob;
-      text = "Hob";
+    case 'microwave':
+      iconValue = Microwave;
+      text = firstToUpperCase(attribute);
       break;
-    case "kitchen":
-      iconVar = Kitchen;
-      text = "Kitchen";
+    case 'engine':
+      iconValue = Petrol;
+      text = firstToUpperCase(text);
       break;
-    case "microwave":
-      iconVar = Microwave;
-      text = "Microwave";
+    case 'radio':
+      iconValue = Radio;
+      text = firstToUpperCase(attribute);
       break;
-    case "radio":
-      iconVar = Radio;
-      text = "Radio";
+    case 'shower':
+      iconValue = Shower;
+      text += makePluralOrSingular(text, attribute);
       break;
-    case "shower":
-      iconVar = Shower;
-      text = "Shower";
+    case 'toilet':
+      iconValue = ToiletPaper;
+      text += makePluralOrSingular(text, attribute);
       break;
-    case "toilet":
-      iconVar = Toilet;
-      text = "Toilet";
+    case 'transmission':
+      iconValue = Transmission;
+      text = firstToUpperCase(text);
       break;
-    case "water":
-      iconVar = Water;
-      text = "Water";
+    case 'TV':
+      iconValue = TV;
+      text = attribute;
       break;
-    case "adults":
-      iconVar = Adults;
-      text = "adults";
+    case 'adults':
+      iconValue = Users;
+      text += makePluralOrSingular(text, attribute);
       break;
-    case "transmission":
-      iconVar = Transmission;
-      text = "automatic";
+    case 'water':
+      iconValue = Water;
+      text = firstToUpperCase(attribute) + ' ' + text;
       break;
-    case "engine":
-      iconVar = Petrol;
-      text = "petrol";
-      break;
-			case "alcove":
-      iconVar = Alcove;
-			text = null;
-      break;
-			case "fullyIntegrated":
-      iconVar = FullyIntegrated;
-			text = null;
-      break;
-			case "panelTruck":
-      iconVar = PanelTruck;
-			text = null;
-      break;
-	  case "AC-Equip":
-		  iconVar = AC;
-		  text = null;
-		  break;
-	  case "TV-Equip":
-		  iconVar = TV;
-		  text = null;
-		  break;
-	  case "bathroom-Equip":
-		  iconVar = Shower;
-		  text = null;
-		  break;
-	  case "transmission-Equip":
-		  iconVar = Transmission;
-		  text = null;
-		  break;
-			case "kitchen-Equip":
-		  iconVar = Kitchen;
-		  text = null;
-		  break;
     default:
-      iconVar = null;
-      text = null;
+      iconValue = null;
+      text = '';
   }
 
   return (
-    <div className={s.wrap}>
-      {iconVar && <img src={iconVar} alt={text} width={width} height={height} />}
-      {quantity === text ? null : <span>{quantity}</span>}
-      {text !== null && <p>{text}</p>}
+    <div className={styles.Attribute}>
+      {IconComponent && <IconComponent height="20px" />}
+      <span>{text}</span>
     </div>
   );
 };

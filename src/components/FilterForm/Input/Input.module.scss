@@ -1,0 +1,31 @@
+@import '@/utils/styles/variables.module.scss';
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #10182860;
+  line-height: 1.5;
+}
+
+.icon {
+  position: absolute;
+  transform: translateY(-50%);
+  bottom: 12px;
+  left: 20px;
+}
+
+.inputField {
+  display: flex;
+  padding: 18px 18px 18px 44px;
+  gap: 8px;
+  border-radius: 10px;
+  background-color: $mainWhiteColor;
+  border: none;
+  outline: none;
+  line-height: 1.25;
+  &::placeholder {
+    color: $secondaryTextColor;
+  }
+}

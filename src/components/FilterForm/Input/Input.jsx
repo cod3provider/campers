@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 
 import MapPin from '@/assets/icons/MapPin.svg';
-import FullHeart from "@/assets/icons/HeartFull.svg";
 
 import styles from './Input.module.scss';
 

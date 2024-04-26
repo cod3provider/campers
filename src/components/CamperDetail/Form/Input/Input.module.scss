@@ -1,0 +1,31 @@
+@import '@/utils/styles/variables.module';
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #10182860;
+  line-height: 1.5;
+}
+
+.icon {
+  position: absolute;
+  transform: translateY(-50%);
+  bottom: 6px;
+  right: 20px;
+}
+
+.inputField {
+  display: flex;
+  padding: 18px;
+  gap: 8px;
+  border-radius: 10px;
+  background: $mainWhiteColor;
+  border: none;
+  outline: none;
+  line-height: 1.25;
+  &::placeholder {
+    color: $secondaryTextColor;
+  }
+}

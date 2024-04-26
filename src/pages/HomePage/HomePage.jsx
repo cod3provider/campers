@@ -1,11 +1,11 @@
-import Container from "../../components/common/Container/Container.jsx";
+import styles from './HomePage.module.scss';
 
 const HomePage = () => {
-	return (
-		<Container>
-			Home
-		</Container>
-	)
-}
+  return (
+    <div className={styles.title}>
+        <h1>Camper Rental App</h1>
+    </div>
+  );
+};
 
 export default HomePage;
