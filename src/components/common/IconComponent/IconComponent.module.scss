@@ -1,5 +1,13 @@
-.wrap {
-  display: flex;
-  align-items: center;
+@import "@/utils/styles/variables.module";
+
+.Attribute {
+  display: inline-flex;
+  gap: 8px;
   justify-content: center;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 100px;
+  background-color: $mainWhiteColor;
+  font-weight: 500;
+  line-height: 1.25;
 }
