@@ -1,0 +1,24 @@
+@import '@/utils/styles/variables.module';
+
+.textarea {
+  padding: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  height: 114px;
+  width: 92%;
+  line-height: 1.25;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: rgba(16, 24, 40, 0.6);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  resize: none;
+  background-color: $mainWhiteColor;
+  transition: all 0.3s linear;
+}
+
+
+.label {
+  width: 100%;
+  color: #10182899;
+  line-height: 1.5;
+}

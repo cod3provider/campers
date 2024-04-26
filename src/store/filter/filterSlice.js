@@ -1,12 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const filterSlice = createSlice({
-  name: "filter",
-  initialState: "",
+  name: 'filter',
+  initialState: {
+    location: '',
+    type: '',
+    details: [],
+  },
   reducers: {
-    setFilter: (_, { payload }) => payload,
+    changeFilter(_, { payload }) {
+      return payload;
+    },
   },
 });
 
-export const filterReducer = filterSlice.reducer;
-export const { setFilter } = filterSlice.actions;
+export const { changeFilter } = filterSlice.actions;
+
+const persistedFilterReducer = persistReducer(
+  { key: 'filter', storage },
+  filterSlice.reducer
+);
+
+export default persistedFilterReducer;
