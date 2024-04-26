@@ -5,7 +5,7 @@ import ReactDatePicker from 'react-datepicker';
 import Input from '../Input';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './DatePicker.module.scss';
-import '../../../../utils/styles/datePicker.scss';
+import '@/utils/styles/datePicker.scss';
 
 const DatePicker = ({ ...props }) => {
   const makeCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
