@@ -1,29 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchCampers } from "../operations.js";
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchCampers } from './operations';
 import {
-  handleFulfilledCampers,
-  handlePendingCampers,
-  handleRejectedCampers,
-} from "./campersHandlers.js";
-import {persistReducer} from "redux-persist";
+  fulfilledReducer,
+  pendingReducer,
+  rejectedReducer,
+} from '../generalReducers';
+import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const campersSlice = createSlice({
-  name: "campers",
+  name: 'campers',
   initialState: {
     items: [],
     favorites: [],
+    page: 1,
     isLoading: false,
     error: null,
-    page: 1,
   },
 
   reducers: {
-    toggleFavorites: (state, { payload }) => {
-      const isFavorite = state.favorites.includes(payload);
-      state.favorites = isFavorite
-        ? state.favorites.filter((favorite) => favorite !== payload)
-        : [...state.favorites, payload];
+    toggleFavorite: (state, { payload }) => {
+      const favorites = state.favorites.slice();
+      const favoriteIndex = favorites.indexOf(payload);
+
+      if (favoriteIndex > -1) {
+        favorites.splice(favoriteIndex, 1);
+      } else {
+        favorites.push(payload);
+      }
+
+      state.favorites = favorites;
     },
 
     setPage: (state, { payload }) => {
@@ -31,31 +37,26 @@ const campersSlice = createSlice({
     },
   },
 
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(fetchCampers.fulfilled, (state, { payload }) => {
         state.items = payload;
         state.isLoading = false;
       })
+      .addMatcher(action => action.type.endsWith('/pending'), pendingReducer)
       .addMatcher(
-        (action) => action.type.endsWith("pending"),
-        handlePendingCampers,
+        action => action.type.endsWith('/fulfilled'),
+        fulfilledReducer
       )
-      .addMatcher(
-        (action) => action.type.endsWith("fulfilled"),
-        handleFulfilledCampers,
-      )
-      .addMatcher(
-        (action) => action.type.endsWith("rejected"),
-        handleRejectedCampers,
-      );
+      .addMatcher(action => action.type.endsWith('/rejected'), rejectedReducer);
   },
 });
 
+export const { setPage, toggleFavorite } = campersSlice.actions;
+
 const persistedReducer = persistReducer(
-  {key: 'campers', storage},
+  { key: 'campers', storage },
   campersSlice.reducer
 );
-export const { toggleFavorites, setPage } = campersSlice.actions;
 
 export default persistedReducer;

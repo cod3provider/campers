@@ -1,0 +1,19 @@
+@import "@/utils/styles/variables.module";
+
+.Button {
+  min-width: 166px;
+  border-radius: 200px;
+  padding: 16px 40px;
+  background-color: $accentRedColor;
+  color: var(--white-color);
+  font-weight: 500;
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
+  font-family: inherit;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $hoverColor;
+  }
+}
