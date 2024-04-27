@@ -1,8 +1,8 @@
 import { Rate } from "antd";
 
-import Avatar from '../Avatar';
+import Avatar from "../Avatar";
 
-import styles from './Review.module.scss';
+import styles from "./Review.module.scss";
 
 const Review = ({ reviewer_name, reviewer_rating, comment }) => {
   return (
@@ -12,7 +12,7 @@ const Review = ({ reviewer_name, reviewer_rating, comment }) => {
         <div className={styles.container}>
           <p className={styles.name}>{reviewer_name}</p>
           {/*<Rating rating={rating} />*/}
-	        <Rate disabled defaultValue={reviewer_rating} />
+          <Rate disabled defaultValue={reviewer_rating} />
         </div>
       </div>
       <p className={styles.comment}>{comment}</p>

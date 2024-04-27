@@ -1,16 +1,22 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import MapPin from '@/assets/icons/MapPin.svg';
+import MapPin from "@/assets/icons/MapPin.svg";
 
-import styles from './Input.module.scss';
+import styles from "./Input.module.scss";
 
 const Input = forwardRef(({ label, ...props }, ref) => {
   return (
-	  <label className={styles.inputWrapper}>
-		  {label}
-		  <img src={MapPin} className={styles.icon} alt="icon of pin" width="24" height="24"/>
-		  <input ref={ref} className={styles.inputField} {...props} />
-	  </label>
+    <label className={styles.inputWrapper}>
+      {label}
+      <img
+        src={MapPin}
+        className={styles.icon}
+        alt="icon of pin"
+        width="24"
+        height="24"
+      />
+      <input ref={ref} className={styles.inputField} {...props} />
+    </label>
   );
 });
 
