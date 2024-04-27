@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import styles from "./Input.module.scss";
 
-const Input = forwardRef(function InputComponent({ label, icon: Icon, ...props }, ref) {
+function InputComponent({ label, icon: Icon, ...props }, ref) {
   return (
     <label className={styles.inputWrapper}>
       {label}
@@ -11,6 +11,8 @@ const Input = forwardRef(function InputComponent({ label, icon: Icon, ...props }
       <input ref={ref} className={styles.inputField} {...props} />
     </label>
   );
-});
+}
+
+const Input = forwardRef(InputComponent);
 
 export default Input;
