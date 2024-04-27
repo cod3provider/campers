@@ -1,5 +1,5 @@
-import IconComponent from '../../common/IconComponent';
-import styles from './Features.module.scss';
+import IconComponent from "../../common/IconComponent";
+import styles from "./Features.module.scss";
 
 const Features = ({ data }) => {
   const featuresArray = Object.entries(data.features);

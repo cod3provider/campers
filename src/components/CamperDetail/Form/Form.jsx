@@ -1,9 +1,9 @@
-import { useForm, Controller } from 'react-hook-form';
-import Button from '../../common/Button';
-import styles from './Form.module.scss';
-import Input from './Input';
-import DatePicker from './DatePicker';
-import Textarea from './TextArea';
+import { useForm, Controller } from "react-hook-form";
+import Button from "../../common/Button";
+import styles from "./Form.module.scss";
+import Input from "./Input";
+import DatePicker from "./DatePicker";
+import Textarea from "./TextArea";
 
 const ModalForm = () => {
   const { register, handleSubmit, control } = useForm();
@@ -20,13 +20,13 @@ const ModalForm = () => {
       </p>
       <div className={styles.inputList}>
         <Input
-          {...register('name', { required: true })}
+          {...register("name", { required: true })}
           type="text"
           name="name"
           placeholder="Name"
         />
         <Input
-          {...register('email', { required: true })}
+          {...register("email", { required: true })}
           name="email"
           type="email"
           placeholder="Email"
@@ -44,7 +44,7 @@ const ModalForm = () => {
         />
 
         <Textarea
-          {...register('comment')}
+          {...register("comment")}
           name="comment"
           placeholder="Comment"
         />

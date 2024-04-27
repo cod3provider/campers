@@ -1,14 +1,14 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from "react-router-dom";
 
 import Logo from "@/components/Logo/Logo.jsx";
 
-import styles from './Header.module.scss';
+import styles from "./Header.module.scss";
 
 const Header = () => (
   <>
     <header className={styles.header}>
       <nav className={styles.nav}>
-	      <Logo/>
+        <Logo />
         <ul className={styles.list}>
           <li>
             <NavLink exact="true" to="/" className={styles.navLink}>

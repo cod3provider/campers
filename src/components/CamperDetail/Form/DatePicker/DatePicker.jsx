@@ -1,11 +1,11 @@
-import Arrow from '@/assets/icons/Arrow.svg';
-import Calendar from '@/assets/icons/Calendar.svg';
+import Arrow from "@/assets/icons/Arrow.svg";
+import Calendar from "@/assets/icons/Calendar.svg";
 
-import ReactDatePicker from 'react-datepicker';
-import Input from '../Input';
-import 'react-datepicker/dist/react-datepicker.css';
-import styles from './DatePicker.module.scss';
-import '@/utils/styles/datePicker.scss';
+import ReactDatePicker from "react-datepicker";
+import Input from "../Input";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./DatePicker.module.scss";
+import "@/utils/styles/datePicker.scss";
 
 const DatePicker = ({ ...props }) => {
   const makeCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
@@ -22,7 +22,13 @@ const DatePicker = ({ ...props }) => {
           })}
         </p>
         <button className={styles.button} type="button" onClick={increaseMonth}>
-          <img src={Arrow} alt="icon of heart" width="24" height="24" className={styles.rotate} />
+          <img
+            src={Arrow}
+            alt="icon of heart"
+            width="24"
+            height="24"
+            className={styles.rotate}
+          />
         </button>
       </div>
     );
